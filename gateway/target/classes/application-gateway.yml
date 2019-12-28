@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        #配置唯一id
+        - id: gateway3-1
+          #配置访问服务的路径
+          uri: http://localhost:80
+          #配置访问前缀
+          predicates:
+            - Path=/gateway/client/**
+          #生效前缀
+          filters:
+            - StripPrefix=2
